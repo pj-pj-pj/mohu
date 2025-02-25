@@ -40,7 +40,7 @@ class AuthController extends Controller
             ];
         }
 
-        $token = $user->createToken($request->name . "-> login");
+        $token = $user->createToken("auth-login");
 
         return [
             'message' => 'A user has been logged in.',
@@ -50,6 +50,10 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request) {
-        return 'logout';
+        $request->user()->tokens()->delete();
+
+        return [
+            'message' => 'User has been logged out.',
+        ];
     }
 }
