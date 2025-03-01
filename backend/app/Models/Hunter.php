@@ -20,4 +20,9 @@ class Hunter extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function questTrackers()
+    {
+        return $this->hasMany(QuestTracker::class);
+    }
 }
