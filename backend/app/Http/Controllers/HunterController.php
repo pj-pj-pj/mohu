@@ -22,7 +22,9 @@ class HunterController extends Controller implements HasMiddleware
      */
     public function index()
     {
-        return Hunter::all();
+        // only fetch hunters based on the passed in bearer token on authorization
+        // ---> now hunters are fetched per authenticated user
+        return Hunter::where('user_id', auth('sanctum')->id())->get();
     }
 
     /**
@@ -50,24 +52,21 @@ class HunterController extends Controller implements HasMiddleware
      */
     public function show(Hunter $hunter)
     {
-        return $hunter;
+        if ($hunter->user_id !== auth('sanctum')->id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
+    
+        return response()->json($hunter);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, Hunter $hunter)
-    // {
-    //     //
-    // }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Hunter $hunter)
     {
-        $hunter->delete();
+        if ($hunter->user_id !== auth('sanctum')->id()) {
+            return response()->json(['message' => 'Unauthorized'], 403);
+        }
 
+        $hunter->delete();
+        
         return [ 'message' => 'This hunter has been deleted.',
                  'deleted_hunter' => $hunter ];
     }
