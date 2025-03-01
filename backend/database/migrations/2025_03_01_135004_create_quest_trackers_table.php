@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('quest_trackers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->foreignId('quest_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('hunter_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['not started', 'in progress', 'completed'])->default('not started');
         });
     }
 
