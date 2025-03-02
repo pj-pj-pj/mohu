@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->foreignId('quest_id')->constrained()->cascadeOnDelete();
             $table->foreignId('hunter_id')->constrained()->cascadeOnDelete();
-            $table->enum('status', ['not started', 'in progress', 'completed'])->default('not started');
+            $table->enum('status', ['accepted', 'completed'])->default('accepted');
         });
     }
 
