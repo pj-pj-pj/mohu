@@ -20,4 +20,9 @@ class Quest extends Model
         'location',
         'hunting_fee'
     ];
+
+    public function questTrackers()
+    {
+        return $this->hasMany(QuestTracker::class);
+    }
 }
