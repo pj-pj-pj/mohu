@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             
             $table->string('name')->unique();
-            $table->json('default_skills'); // Default skills all monsters of this class inherit
+            $table->json('skills');
             $table->integer('base_health')->default(100);
             $table->integer('base_stamina')->default(200);
             $table->integer('base_attack')->default(50);
