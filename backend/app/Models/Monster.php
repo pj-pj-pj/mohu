@@ -27,6 +27,10 @@ class Monster extends Model
         return $this->belongsTo(MonsterClass::class);
     }
 
+    public function quests() {
+        return $this->belongsToMany(Quest::class, 'quest_monster');
+    }    
+
     public function getActualHealthAttribute()
     {
         return $this->health ?? $this->monsterClass->base_health;

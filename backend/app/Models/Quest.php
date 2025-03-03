@@ -25,4 +25,8 @@ class Quest extends Model
     {
         return $this->hasMany(QuestTracker::class);
     }
+
+    public function monsters() {
+        return $this->belongsToMany(Monster::class, 'quest_monster');
+    }
 }
