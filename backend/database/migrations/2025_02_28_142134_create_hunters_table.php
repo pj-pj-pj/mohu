@@ -26,6 +26,7 @@ return new class extends Migration
             $table->integer('stamina')->default(100);
             $table->integer('attack')->default(0);
             $table->integer('defense')->default(1);
+            $table->integer('speed')->default(60);
         });
     }
 

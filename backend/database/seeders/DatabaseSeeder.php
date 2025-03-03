@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             HunterSeeder::class,
             QuestSeeder::class,
             QuestTrackerSeeder::class,
+            MonsterClassSeeder::class,
+            MonsterSeeder::class,
+            QuestMonsterSeeder::class,
         ]);
     }
 }
