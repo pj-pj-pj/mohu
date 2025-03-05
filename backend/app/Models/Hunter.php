@@ -25,4 +25,14 @@ class Hunter extends Model
     {
         return $this->hasMany(QuestTracker::class);
     }
+
+    public function weapon()
+    {
+        return $this->belongsTo(Weapon::class);
+    }
+
+    public function armor()
+    {
+        return $this->belongsTo(Armor::class);
+    }
 }
