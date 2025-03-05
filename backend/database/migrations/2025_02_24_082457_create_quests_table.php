@@ -23,7 +23,6 @@ return new class extends Migration
             $table->integer('reward');
             $table->string('location');
             $table->integer('hunting_fee');
-            // $table->foreignId('monster_id')->constrained()->onDelete('cascade');
         });
     }
 

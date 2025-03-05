@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('weapon_id')->constrained()->onDelete('cascade');
+            $table->foreignId('armor_id')->nullable()->constrained()->onDelete('cascade');
             $table->string('name');
             $table->enum('sex', ['Male', 'Female'])->default('Male');
             $table->integer('character_slot');

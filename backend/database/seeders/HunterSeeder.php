@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Hunter;
 use App\Models\User;
+use App\Models\Weapon;
+use App\Models\Armor;
 
 class HunterSeeder extends Seeder
 {
@@ -16,17 +18,23 @@ class HunterSeeder extends Seeder
     {
         $users = User::all();
 
+        // Fetch weapons and armor
+        $weapon1 = Weapon::where('name', 'Old Yukumo Dual')->first();
+        $weapon2 = Weapon::where('name', 'Jaggi Claws')->first();
+        $armor1 = Armor::where('name', 'Yukumo Set')->first();
+        $armor2 = Armor::where('name', 'Jaggi Armor Set')->first();
+
         // Assign hunters to users
         $hunters = [
-            ['name' => 'HunterA', 'sex' => 'Male', 'character_slot' => 1],
-            ['name' => 'HunterB', 'sex' => 'Female', 'character_slot' => 2],
+            ['name' => 'HunterA', 'sex' => 'Male', 'character_slot' => 1, 'weapon_id' => $weapon1->id, 'armor_id' => $armor1->id],
+            ['name' => 'HunterB', 'sex' => 'Female', 'character_slot' => 2, 'weapon_id' => $weapon2->id, 'armor_id' => $armor2->id],
 
-            ['name' => 'HunterC', 'sex' => 'Male', 'character_slot' => 1],
-            ['name' => 'HunterD', 'sex' => 'Female', 'character_slot' => 2],
+            ['name' => 'HunterC', 'sex' => 'Male', 'character_slot' => 1, 'weapon_id' => $weapon1->id, 'armor_id' => $armor1->id],
+            ['name' => 'HunterD', 'sex' => 'Female', 'character_slot' => 2, 'weapon_id' => $weapon2->id, 'armor_id' => $armor2->id],
 
-            ['name' => 'HunterE', 'sex' => 'Male', 'character_slot' => 1],
-            ['name' => 'HunterF', 'sex' => 'Female', 'character_slot' => 2],
-            ['name' => 'HunterG', 'sex' => 'Male', 'character_slot' => 3], // Third hunter for PlayerThree
+            ['name' => 'HunterE', 'sex' => 'Male', 'character_slot' => 1, 'weapon_id' => $weapon1->id, 'armor_id' => $armor1->id],
+            ['name' => 'HunterF', 'sex' => 'Female', 'character_slot' => 2, 'weapon_id' => $weapon2->id, 'armor_id' => $armor2->id],
+            ['name' => 'HunterG', 'sex' => 'Male', 'character_slot' => 3, 'weapon_id' => $weapon1->id, 'armor_id' => $armor1->id], // Third hunter for PlayerThree
         ];
 
         $i = 0;

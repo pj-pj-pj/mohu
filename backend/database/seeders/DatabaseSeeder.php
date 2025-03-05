@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
+            ArmorSeeder::class,
+            WeaponSeeder::class,
+            WeaponSkillSeeder::class,
             HunterSeeder::class,
             QuestSeeder::class,
             QuestTrackerSeeder::class,
