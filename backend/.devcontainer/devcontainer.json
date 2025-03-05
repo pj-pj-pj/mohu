@@ -1,0 +1,9 @@
+{
+    "name": "Custom PHP 8.2 Dev Container",
+    "dockerFile": "Dockerfile",
+    "context": "..",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["bmewburn.vscode-intelephense-client"]
+}
